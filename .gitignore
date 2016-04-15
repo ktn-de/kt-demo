@@ -1,0 +1,10 @@
+.DS_Store
+.settings
+.classpath
+.project
+.externalToolBuilders
+.tern-project
+target/
+test-output/
+bin/
+.errai
