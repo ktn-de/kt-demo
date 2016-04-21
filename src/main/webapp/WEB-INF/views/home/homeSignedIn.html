@@ -19,6 +19,29 @@
     <p>
         Welcome to the Spring MVC Quickstart application!
     </p>
+    <hr />
+    <form method="post" action="#" th:action="@{/queryRates}" th:object="${currencyRequest}" >
+        <div class="form-group">
+            <label for="data">Query rates: </label>
+            <input id="base" type="text" class="form-control" placeholder="USD" th:field="*{base}" />
+            <input id="target" type="text" class="form-control" placeholder="USD" th:field="*{target}" />
+            <input id="date" type="text" class="form-control" placeholder="USD" th:field="*{date}" />
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Last requests</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="lastRequest : ${lastRequests}">
+                <td th:text="${lastRequest}">lastRequest</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
