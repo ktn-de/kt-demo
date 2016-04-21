@@ -1,12 +1,14 @@
 package com.kt.demo.currency;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class CurrencyRequest {
 	
-	LocalDate date;
+	LocalDateTime timeRequested = LocalDateTime.now();
 	Currency base;
 	Currency target;
+	LocalDate date;
 	double rate;
 	String errorMsg;
 	
@@ -72,10 +74,18 @@ public class CurrencyRequest {
 		this.errorMsg = errorMsg;
 	}
 
+	public LocalDateTime getTimeRequested() {
+		return timeRequested;
+	}
+
+	public void setTimeRequested(LocalDateTime timeRequested) {
+		this.timeRequested = timeRequested;
+	}
+
 	@Override
 	public String toString() {
-		return "CurrencyRequest [date=" + date + ", base=" + base + ", target=" + target + ", rate=" + rate
-				+ ", errorMsg=" + errorMsg + "]";
+		return "CurrencyRequest [timeRequested=" + timeRequested + ", base=" + base + ", target=" + target + ", date="
+				+ date + ", rate=" + rate + ", errorMsg=" + errorMsg + "]";
 	}
 
 }
