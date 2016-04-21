@@ -27,16 +27,12 @@ public class OpenExchangeProvider implements Provider {
 	public ExchangeRates getExchangeRates(Currency base, LocalDate date) {
 		ExchangeRates exchangeRates = new ExchangeRates();
 		exchangeRates.setBase(base);
-		try {
-			ExchangeRatesRequest request = new ExchangeRatesRequest(base, date);
-			Response response = connector.getResponse(request.getPath(), request.getParams(), Response.class);
-			if (response != null) {
-				exchangeRates.setTimestamp(response.getTimestamp());
-				exchangeRates.setRates(response.getRates());
-				exchangeRates.filterUnwanted();
-			}
-		} catch (Exception e) {
-			exchangeRates.setErrorMsg(e.toString());
+		ExchangeRatesRequest request = new ExchangeRatesRequest(base, date);
+		Response response = connector.getResponse(request.getPath(), request.getParams(), Response.class);
+		if (response != null) {
+			exchangeRates.setTimestamp(response.getTimestamp());
+			exchangeRates.setRates(response.getRates());
+			exchangeRates.filterUnwanted();
 		}
 		log.info("exchangeRates: " + exchangeRates);
 		return exchangeRates;

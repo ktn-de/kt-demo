@@ -8,6 +8,7 @@ public class CurrencyRequest {
 	Currency base;
 	Currency target;
 	double rate;
+	String errorMsg;
 	
 	public CurrencyRequest() {
 		// TODO Auto-generated constructor stub
@@ -63,9 +64,18 @@ public class CurrencyRequest {
 		this.rate = rate;
 	}
 
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
 	@Override
 	public String toString() {
-		return "CurrencyRequest [date=" + date + ", base=" + base + ", target=" + target + ", rate=" + rate + "]";
+		return "CurrencyRequest [date=" + date + ", base=" + base + ", target=" + target + ", rate=" + rate
+				+ ", errorMsg=" + errorMsg + "]";
 	}
 
 }

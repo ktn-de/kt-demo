@@ -16,10 +16,14 @@ public class CurrencyService {
 	public void updateRate(CurrencyRequest request) {
 		try {
 			ExchangeRates rates = provider.getExchangeRates(request.getBase(), request.getDate());
+			if (rates == null) {
+				throw new RuntimeException("nothing received");
+			}
 			double rate = rates.getRate(request.getTarget());
 			request.setRate(rate);
 			log.info("update rate: " + request);
 		} catch (Exception e) {
+			request.setErrorMsg(e.getMessage());
 			log.error("update rate failed: " + request, e);
 		}
 	}

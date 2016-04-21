@@ -6,7 +6,6 @@ public class ExchangeRates {
     
 	Currency base;
 	long timestamp;
-	String errorMsg;
     Map<Currency, Double> rates;
 
 	public Currency getBase() {
@@ -23,14 +22,6 @@ public class ExchangeRates {
 
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
-	}
-
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
 	}
 
 	public Map<Currency, Double> getRates() {
@@ -53,7 +44,7 @@ public class ExchangeRates {
 
 	@Override
 	public String toString() {
-		return "ExchangeRates [base=" + base + ", timestamp=" + timestamp + ", errorMsg=" + errorMsg + ", rates="
+		return "ExchangeRates [base=" + base + ", timestamp=" + timestamp + ", rates="
 				+ rates + "]";
 	}
 
