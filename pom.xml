@@ -24,6 +24,15 @@
         <relativePath />
     </parent>
     <dependencies>
+		<!-- Guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
