@@ -23,8 +23,12 @@
     <form method="post" action="#" th:action="@{/queryRates}" th:object="${currencyRequest}" >
         <div class="form-group">
             <label for="data">Query rates: </label>
-            <input id="base" type="text" class="form-control" placeholder="USD" th:field="*{base}" />
-            <input id="target" type="text" class="form-control" placeholder="USD" th:field="*{target}" />
+            <select class="form-control" th:field="*{base}">
+				<option th:each="currency : ${currencyList}" th:value="${currency}" th:text="${currency}" th:selected="${ currency==currencyRequest.base } ">BaseOptions</option>
+			</select>
+            <select class="form-control" th:field="*{target}">
+				<option th:each="currency : ${currencyList}" th:value="${currency}" th:text="${currency}" th:selected="${ currency==currencyRequest.target } ">TargetOptions</option>
+			</select>
             <input id="date" type="text" class="form-control" placeholder="USD" th:field="*{date}" />
         </div>
         <button type="submit" class="btn btn-default">Submit</button>

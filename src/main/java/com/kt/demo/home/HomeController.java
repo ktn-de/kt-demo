@@ -32,16 +32,21 @@ public class HomeController {
 			return "home/homeNotSignedIn";
 		}
 		model.addAttribute("name", principal);
-        model.addAttribute("lastRequests", lastRequests);
-        model.addAttribute("currencyRequest", new CurrencyRequest(Currency.USD, Currency.EUR, LocalDate.now()));
+		addLists(model);
+		model.addAttribute("currencyRequest", new CurrencyRequest(Currency.USD, Currency.EUR, LocalDate.now()));
         return "home/homeSignedIn";
 	}
 
-    @RequestMapping(value = "/queryRates", method = RequestMethod.POST)
+	private void addLists(ModelMap model) {
+		model.addAttribute("lastRequests", lastRequests);
+		model.addAttribute("currencyList", Currency.ListAll);
+	}
+
+	@RequestMapping(value = "/queryRates", method = RequestMethod.POST)
     public String queryRates(ModelMap model, @ModelAttribute("currencyRequest") @Valid CurrencyRequest request) throws Exception {
 		currencyService.updateRate(request);
 		lastRequests.add(request);
-        model.addAttribute("lastRequests", lastRequests);
+        addLists(model);
         return "home/homeSignedIn";
     }
 }
