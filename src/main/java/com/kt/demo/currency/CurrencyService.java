@@ -14,11 +14,11 @@ public class CurrencyService {
 	Provider provider;
 
 	public void updateRate(CurrencyRequest request) {
-		log.info("update rate: " + request);
 		try {
 			ExchangeRates rates = provider.getExchangeRates(request.getBase(), request.getDate());
 			double rate = rates.getRate(request.getTarget());
 			request.setRate(rate);
+			log.info("update rate: " + request);
 		} catch (Exception e) {
 			log.error("update rate failed: " + request, e);
 		}
