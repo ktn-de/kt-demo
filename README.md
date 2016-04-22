@@ -4,7 +4,7 @@ Demonstrates a currency converter using http://openechangerates.org API.
 
 In this showcase you'll see the following in action:
 * subscribe new members (sign-up)
-* login (sign-in)
+* login (sign-in) e.g. name=user, password=demo
 * logout (sign-out)
 * query latest currency rate
 * query historical currency rate
@@ -29,11 +29,12 @@ From the command line with Maven:
 To run the application local:
 -------------------	
     $ java -jar target/dependency/jetty-runner.jar target/*.war
-Access the deployed web application at: http://localhost:8080/
 
-or
+    Access the deployed web application at: http://localhost:8080/
 
-Access the deployed web application at: http://demo-ktnplus.rhcloud.com/
+To run the application hosted at openshift:
+-------------------	
+    Access the deployed web application at: http://demo-ktnplus.rhcloud.com/
 
 Note:
 -------------------
